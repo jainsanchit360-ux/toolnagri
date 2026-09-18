@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF to Word &mdash; Free Online Tool | ToolNagri</title>
+<meta name="description" content="Extract PDF text into an editable Word (.docx) document, processed locally.">
+<link rel="canonical" href="https://toolnagri.in/tools/pdf-to-word.html">
+<meta property="og:title" content="PDF to Word &mdash; Free Online Tool | ToolNagri">
+<meta property="og:description" content="Extract PDF text into an editable Word (.docx) document, processed locally.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://toolnagri.in/tools/pdf-to-word.html">
+<meta property="og:site_name" content="ToolNagri">
+<meta property="og:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PDF to Word &mdash; Free Online Tool | ToolNagri">
+<meta name="twitter:description" content="Extract PDF text into an editable Word (.docx) document, processed locally.">
+<meta name="twitter:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta name="theme-color" content="#146356">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/tools-data.js"></script>
+<script src="/assets/js/site.js"></script>
+<script src="/assets/js/pdf-engine.js"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PDF to Word", "applicationCategory": "UtilityApplication", "operatingSystem": "Any (web browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "url": "https://toolnagri.in/tools/pdf-to-word.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Will my PDF's exact formatting (fonts, columns, images) be preserved?", "acceptedAnswer": {"@type": "Answer", "text": "No. This tool extracts text content only, so you'll need to reformat the document in Word if you need to match the original's exact visual layout."}}, {"@type": "Question", "name": "What if my PDF is a scanned document?", "acceptedAnswer": {"@type": "Answer", "text": "Scanned PDFs are images, not text, so there's nothing to extract. This tool will tell you clearly if no text was found rather than producing an empty document."}}, {"@type": "Question", "name": "Is this a real, editable Word file?", "acceptedAnswer": {"@type": "Answer", "text": "Yes &mdash; it's a genuine .docx file you can open and edit in Microsoft Word, Google Docs, or LibreOffice, not an image or a PDF renamed."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolnagri.in/"}, {"@type": "ListItem", "position": 2, "name": "PDF & Document Tools", "item": "https://toolnagri.in/categories/pdf.html"}, {"@type": "ListItem", "position": 3, "name": "PDF to Word", "item": "https://toolnagri.in/tools/pdf-to-word.html"}]}</script>
+</head>
+<body data-tool-slug="pdf-to-word">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container row">
+    <a class="brand" href="/">
+      <span class="dot" aria-hidden="true"></span>ToolNagri
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links"><li><a href="/categories/student.html">Student</a></li><li><a href="/categories/finance.html">Finance</a></li><li><a href="/categories/pdf.html">PDF</a></li><li><a href="/categories/career.html">Career</a></li><li><a href="/tools.html">All Tools</a></li></ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="container" style="padding-top:20px">
+  <p class="breadcrumb"><a href="/">Home</a> / <a href="/categories/pdf.html">PDF & Document Tools</a> / PDF to Word</p>
+  <div class="tool-header">
+    <h1>PDF to Word</h1>
+    <p class="desc">Extract PDF text into an editable Word (.docx) document, processed locally.</p>
+  </div>
+
+  <div class="tool-panel">
+    
+    <div id="pw-dropzone" class="drop-zone">
+      <p><strong>Drag & drop a PDF here</strong>, or</p>
+      <label class="btn btn-secondary" for="pw-file" style="display:inline-flex;margin-top:6px">Choose PDF</label>
+      <input id="pw-file" type="file" accept="application/pdf" style="display:none">
+      <p class="search-hint">One PDF at a time, up to 40 MB. Processed entirely in your browser.</p>
+    </div>
+    <div class="notice">
+      This tool extracts the <strong>text content</strong> of your PDF into an editable Word document.
+      It works best for text-based PDFs (reports, essays, letters). Scanned/image-only PDFs have no
+      extractable text, and complex layouts, tables and images are not preserved &mdash; only the text.
+    </div>
+    <div id="pw-options" style="display:none;margin-top:8px">
+      <p class="field hint" id="pw-filename"></p>
+      <div class="row-actions">
+        <button type="button" id="pw-run" class="btn btn-primary">Convert to Word</button>
+        <button type="button" id="pw-reset" class="btn btn-secondary">Choose another file</button>
+      </div>
+      <div id="pw-progress" class="notice hidden"></div>
+    </div>
+    <div id="error-box" class="error-msg hidden"></div>
+    <div id="result-box" class="result-card hidden">
+      <p id="pw-result-text">Your Word document is ready.</p>
+      <div class="row-actions"><a id="pw-download" class="btn btn-primary">Download .docx</a></div>
+    </div>
+    
+  </div>
+  <div class="disclaimer">This tool extracts text only; visual layout, tables and images are not preserved. For scanned/image-only PDFs, no text can be extracted.</div>
+
+  <div class="content-block">
+    <h2>How it works</h2>
+    <p>Your PDF's text is extracted page-by-page using pdf.js's text layer (the same layer that lets you select text in a PDF viewer), then assembled into a real .docx Word document with one heading per page, using an open-source document-generation library. Only text is extracted &mdash; page layout, images, columns and tables are not reconstructed. Nothing is uploaded to a server.</p>
+    <h2>Example</h2>
+    <p>Upload a 4-page text report and download a Word document with 4 sections ("Page 1" through "Page 4"), each containing that page's text as editable paragraphs.</p>
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary>Will my PDF's exact formatting (fonts, columns, images) be preserved?</summary><p>No. This tool extracts text content only, so you'll need to reformat the document in Word if you need to match the original's exact visual layout.</p></details>
+<details><summary>What if my PDF is a scanned document?</summary><p>Scanned PDFs are images, not text, so there's nothing to extract. This tool will tell you clearly if no text was found rather than producing an empty document.</p></details>
+<details><summary>Is this a real, editable Word file?</summary><p>Yes &mdash; it's a genuine .docx file you can open and edit in Microsoft Word, Google Docs, or LibreOffice, not an image or a PDF renamed.</p></details>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-head"><h2>Related tools</h2></div>
+    <div class="grid grid-4">
+      <a class="tool-card" href="/tools/compress-pdf.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>Compress PDF</h3>
+      <p>Reduce PDF file size by re-encoding pages at a quality you choose, processed locally.</p>
+    </a>
+<a class="tool-card" href="/tools/split-pdf.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>Split PDF</h3>
+      <p>Split a PDF into individual pages or custom page ranges, processed locally.</p>
+    </a>
+<a class="tool-card" href="/tools/pdf-to-ppt.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>PDF to PPT</h3>
+      <p>Turn each PDF page into a slide in a PowerPoint (.pptx) file, processed locally.</p>
+    </a>
+<a class="tool-card" href="/tools/pdf-to-excel.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>PDF to Excel</h3>
+      <p>Extract tables and text from a PDF into an Excel (.xlsx) file, processed locally.</p>
+    </a>
+    </div>
+  </section>
+</div>
+<script>
+    (function(){
+      var file = null;
+      var dz = document.getElementById('pw-dropzone');
+      var input = document.getElementById('pw-file');
+      function showError(msg){
+        document.getElementById('error-box').textContent = msg;
+        document.getElementById('error-box').classList.remove('hidden');
+        document.getElementById('result-box').classList.add('hidden');
+      }
+      function setProgress(msg){
+        var p = document.getElementById('pw-progress');
+        if (!msg) { p.classList.add('hidden'); return; }
+        p.textContent = msg; p.classList.remove('hidden');
+      }
+      function handleFile(f){
+        document.getElementById('error-box').classList.add('hidden');
+        if (f.type !== 'application/pdf') { showError('Please choose a PDF file.'); return; }
+        if (f.size > 40*1024*1024) { showError('File is too large. Please choose a PDF under 40 MB.'); return; }
+        file = f;
+        document.getElementById('pw-filename').textContent = 'Selected: ' + f.name + ' (' + window.ToolNagriPDF.formatBytes(f.size) + ')';
+        document.getElementById('pw-options').style.display = 'block';
+      }
+      ['dragover','dragenter'].forEach(function(evt){ dz.addEventListener(evt, function(e){ e.preventDefault(); dz.classList.add('dragover'); }); });
+      ['dragleave','drop'].forEach(function(evt){ dz.addEventListener(evt, function(e){ e.preventDefault(); dz.classList.remove('dragover'); }); });
+      dz.addEventListener('drop', function(e){ if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); });
+      input.addEventListener('change', function(){ if (input.files.length) handleFile(input.files[0]); input.value=''; });
+
+      document.getElementById('pw-run').addEventListener('click', async function(){
+        document.getElementById('error-box').classList.add('hidden');
+        if (!file) { showError('Please choose a PDF first.'); return; }
+        var btn = this; btn.disabled = true; btn.textContent = 'Converting...';
+        try {
+          setProgress('Loading PDF engine...');
+          var pdfjsLib = await window.ToolNagriPDF.ensurePdfJs();
+          var buf = await file.arrayBuffer();
+          var pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+          var docxLib = await window.ToolNagriPDF.ensureDocx();
+          var children = [];
+          var hasAnyText = false;
+          for (var i=1; i<=pdf.numPages; i++){
+            setProgress('Extracting text from page ' + i + ' of ' + pdf.numPages + '...');
+            var text = await window.ToolNagriPDF.extractPageText(pdf, i);
+            children.push(new docxLib.Paragraph({ text: 'Page ' + i, heading: docxLib.HeadingLevel.HEADING_2 }));
+            if (text.trim()) {
+              hasAnyText = true;
+              var lines = text.split(/\s{2,}|\n/).map(function(s){return s.trim();}).filter(Boolean);
+              if (lines.length === 0) lines = [text];
+              lines.forEach(function(line){
+                children.push(new docxLib.Paragraph({ children: [new docxLib.TextRun(line)] }));
+              });
+            } else {
+              children.push(new docxLib.Paragraph({ children: [new docxLib.TextRun({text:'(No extractable text on this page — it may be a scanned image.)', italics:true})] }));
+            }
+          }
+          if (!hasAnyText) {
+            throw new Error('no_text');
+          }
+          setProgress('Building Word document...');
+          var doc = new docxLib.Document({ sections: [{ properties: {}, children: children }] });
+          var blob = await docxLib.Packer.toBlob(doc);
+          var baseName = file.name.replace(/\.pdf$/i, '');
+          document.getElementById('pw-download').href = URL.createObjectURL(blob);
+          document.getElementById('pw-download').setAttribute('download', baseName + '.docx');
+          document.getElementById('pw-result-text').textContent = 'Extracted text from ' + pdf.numPages + ' page(s) into an editable Word document.';
+          setProgress(null);
+          document.getElementById('result-box').classList.remove('hidden');
+        } catch (err) {
+          setProgress(null);
+          if (err && err.message === 'no_text') {
+            showError('No extractable text was found in this PDF — it looks like a scanned/image-only document, which this tool cannot convert to text.');
+          } else {
+            showError('The conversion engine failed to load or this file could not be processed. Please check your internet connection and try again.');
+          }
+        } finally {
+          btn.disabled = false; btn.textContent = 'Convert to Word';
+        }
+      });
+
+      document.getElementById('pw-reset').addEventListener('click', function(){
+        file = null; input.value = '';
+        document.getElementById('pw-options').style.display = 'none';
+        document.getElementById('result-box').classList.add('hidden');
+        document.getElementById('error-box').classList.add('hidden');
+        setProgress(null);
+      });
+    })();
+    </script>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/" style="margin-bottom:10px"><span class="dot"></span>ToolNagri</a>
+        <p style="color:var(--ink-soft);font-size:.9rem;max-width:320px">ToolNagri is a free online utility hub with calculators, converters, PDF tools and career tools for Indian students and professionals. No signup required.</p>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="/categories/student.html">Student Tools</a></li><li><a href="/categories/finance.html">Finance Tools</a></li><li><a href="/categories/pdf.html">PDF & Document Tools</a></li><li><a href="/categories/ai.html">AI Tools</a></li><li><a href="/categories/calculators.html">Calculators</a></li><li><a href="/categories/converters.html">Converters</a></li><li><a href="/categories/career.html">Career Tools</a></li><li><a href="/categories/everyday.html">Everyday Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Popular Tools</h4>
+        <ul>
+          <li><a href="/tools/sgpa-calculator.html">SGPA Calculator</a></li><li><a href="/tools/cgpa-calculator.html">CGPA Calculator</a></li><li><a href="/tools/attendance-calculator.html">Attendance Calculator</a></li><li><a href="/tools/emi-calculator.html">EMI Calculator</a></li><li><a href="/tools/sip-calculator.html">SIP Calculator</a></li><li><a href="/tools/gst-calculator.html">GST Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+          <li><a href="/disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> ToolNagri. Made in India. All tools are free to use.</span>
+      <span>Contact: <a href="mailto:hello@toolnagri.in">hello@toolnagri.in</a></span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

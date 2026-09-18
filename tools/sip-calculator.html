@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIP Calculator &mdash; Free Online Tool | ToolNagri</title>
+<meta name="description" content="Estimate the future value of your monthly SIP investments.">
+<link rel="canonical" href="https://toolnagri.in/tools/sip-calculator.html">
+<meta property="og:title" content="SIP Calculator &mdash; Free Online Tool | ToolNagri">
+<meta property="og:description" content="Estimate the future value of your monthly SIP investments.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://toolnagri.in/tools/sip-calculator.html">
+<meta property="og:site_name" content="ToolNagri">
+<meta property="og:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SIP Calculator &mdash; Free Online Tool | ToolNagri">
+<meta name="twitter:description" content="Estimate the future value of your monthly SIP investments.">
+<meta name="twitter:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta name="theme-color" content="#146356">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/tools-data.js"></script>
+<script src="/assets/js/site.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "SIP Calculator", "applicationCategory": "UtilityApplication", "operatingSystem": "Any (web browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "url": "https://toolnagri.in/tools/sip-calculator.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the return guaranteed?", "acceptedAnswer": {"@type": "Answer", "text": "No. Mutual fund and market-linked SIP returns are never guaranteed. This calculator uses the rate you enter purely as an estimate; actual returns depend on market performance."}}, {"@type": "Question", "name": "Does this account for expense ratio or exit load?", "acceptedAnswer": {"@type": "Answer", "text": "No, this is a simplified estimate based on your expected gross return. Actual net returns will be lower after fund expenses and taxes."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolnagri.in/"}, {"@type": "ListItem", "position": 2, "name": "Finance Tools", "item": "https://toolnagri.in/categories/finance.html"}, {"@type": "ListItem", "position": 3, "name": "SIP Calculator", "item": "https://toolnagri.in/tools/sip-calculator.html"}]}</script>
+</head>
+<body data-tool-slug="sip-calculator">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container row">
+    <a class="brand" href="/">
+      <span class="dot" aria-hidden="true"></span>ToolNagri
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links"><li><a href="/categories/student.html">Student</a></li><li><a href="/categories/finance.html">Finance</a></li><li><a href="/categories/pdf.html">PDF</a></li><li><a href="/categories/career.html">Career</a></li><li><a href="/tools.html">All Tools</a></li></ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="container" style="padding-top:20px">
+  <p class="breadcrumb"><a href="/">Home</a> / <a href="/categories/finance.html">Finance Tools</a> / SIP Calculator</p>
+  <div class="tool-header">
+    <h1>SIP Calculator</h1>
+    <p class="desc">Estimate the future value of your monthly SIP investments.</p>
+  </div>
+
+  <div class="tool-panel">
+    
+    <form id="sip-form">
+      <div class="field"><label for="sip-amount">Monthly investment (&#8377;)</label><input id="sip-amount" type="number" min="0" step="500" placeholder="5000" required></div>
+      <div class="field"><label for="sip-return">Expected annual return (%)</label><input id="sip-return" type="number" min="0" step="0.1" placeholder="12" required></div>
+      <div class="field"><label for="sip-years">Investment duration (years)</label><input id="sip-years" type="number" min="0" step="0.5" placeholder="10" required></div>
+      <div class="row-actions">
+        <button type="submit" class="btn btn-primary">Calculate</button>
+        <button type="button" id="reset-btn" class="btn btn-secondary">Reset</button>
+      </div>
+    </form>
+    <div id="error-box" class="error-msg hidden"></div>
+    <div id="result-box" class="result-card hidden">
+      <div class="label">Estimated maturity value</div>
+      <div class="big" id="sip-value">&#8377;0</div>
+      <div class="result-grid">
+        <div class="item"><div class="label">Total invested</div><div class="val" id="sip-invested">-</div></div>
+        <div class="item"><div class="label">Estimated returns</div><div class="val" id="sip-returns">-</div></div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="disclaimer">Mutual fund investments are subject to market risk. This tool provides an educational estimate only, not investment advice.</div>
+
+  <div class="content-block">
+    <h2>How it works</h2>
+    <p>SIP (Systematic Investment Plan) maturity value is estimated using the future value of a series formula, assuming monthly compounding of the expected annual return:</p><p><strong>FV = P &times; [((1+i)<sup>n</sup> - 1) &divide; i] &times; (1+i)</strong></p><p>where P is the monthly investment, i is the monthly rate of return, and n is the number of months.</p>
+    <h2>Example</h2>
+    <p>Investing &#8377;5,000 per month for 10 years at an expected 12% annual return gives an estimated maturity value of around &#8377;11.6 lakh, of which about &#8377;6 lakh is your own invested capital and the rest is estimated growth.</p>
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary>Is the return guaranteed?</summary><p>No. Mutual fund and market-linked SIP returns are never guaranteed. This calculator uses the rate you enter purely as an estimate; actual returns depend on market performance.</p></details>
+<details><summary>Does this account for expense ratio or exit load?</summary><p>No, this is a simplified estimate based on your expected gross return. Actual net returns will be lower after fund expenses and taxes.</p></details>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-head"><h2>Related tools</h2></div>
+    <div class="grid grid-4">
+      <a class="tool-card" href="/tools/emi-calculator.html">
+      <span class="cat-tag">Finance Tools</span>
+      <h3>EMI Calculator</h3>
+      <p>Calculate monthly EMI, total interest and total payment for any loan.</p>
+    </a>
+<a class="tool-card" href="/tools/gst-calculator.html">
+      <span class="cat-tag">Finance Tools</span>
+      <h3>GST Calculator</h3>
+      <p>Add or remove GST and split it into CGST and SGST.</p>
+    </a>
+<a class="tool-card" href="/tools/sgpa-calculator.html">
+      <span class="cat-tag">Student Tools</span>
+      <h3>SGPA Calculator</h3>
+      <p>Calculate your semester SGPA from subject credits and grades.</p>
+    </a>
+<a class="tool-card" href="/tools/cgpa-calculator.html">
+      <span class="cat-tag">Student Tools</span>
+      <h3>CGPA Calculator</h3>
+      <p>Calculate overall CGPA from semester-wise SGPA and credits.</p>
+    </a>
+    </div>
+  </section>
+</div>
+<script>
+    (function(){
+      function inr(n){ return '₹' + Math.round(n).toLocaleString('en-IN'); }
+      function showError(msg){
+        document.getElementById('error-box').textContent = msg;
+        document.getElementById('error-box').classList.remove('hidden');
+        document.getElementById('result-box').classList.add('hidden');
+      }
+      document.getElementById('sip-form').addEventListener('submit', function(e){
+        e.preventDefault();
+        document.getElementById('error-box').classList.add('hidden');
+        var amt = parseFloat(document.getElementById('sip-amount').value);
+        var rate = parseFloat(document.getElementById('sip-return').value);
+        var years = parseFloat(document.getElementById('sip-years').value);
+        if ([amt,rate,years].some(isNaN)) { showError('Please fill in all fields.'); return; }
+        if (amt <= 0 || years <= 0) { showError('Monthly investment and duration must be greater than zero.'); return; }
+        if (rate < 0) { showError('Expected return cannot be negative.'); return; }
+        var n = Math.round(years*12);
+        var i = rate/12/100;
+        var futureValue;
+        if (i === 0) {
+          futureValue = amt * n;
+        } else {
+          futureValue = amt * ((Math.pow(1+i,n) - 1) / i) * (1+i);
+        }
+        var invested = amt * n;
+        var returns = futureValue - invested;
+        document.getElementById('sip-value').textContent = inr(futureValue);
+        document.getElementById('sip-invested').textContent = inr(invested);
+        document.getElementById('sip-returns').textContent = inr(returns);
+        document.getElementById('result-box').classList.remove('hidden');
+      });
+      document.getElementById('reset-btn').addEventListener('click', function(){
+        document.getElementById('sip-form').reset();
+        document.getElementById('result-box').classList.add('hidden');
+        document.getElementById('error-box').classList.add('hidden');
+      });
+    })();
+    </script>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/" style="margin-bottom:10px"><span class="dot"></span>ToolNagri</a>
+        <p style="color:var(--ink-soft);font-size:.9rem;max-width:320px">ToolNagri is a free online utility hub with calculators, converters, PDF tools and career tools for Indian students and professionals. No signup required.</p>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="/categories/student.html">Student Tools</a></li><li><a href="/categories/finance.html">Finance Tools</a></li><li><a href="/categories/pdf.html">PDF & Document Tools</a></li><li><a href="/categories/ai.html">AI Tools</a></li><li><a href="/categories/calculators.html">Calculators</a></li><li><a href="/categories/converters.html">Converters</a></li><li><a href="/categories/career.html">Career Tools</a></li><li><a href="/categories/everyday.html">Everyday Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Popular Tools</h4>
+        <ul>
+          <li><a href="/tools/sgpa-calculator.html">SGPA Calculator</a></li><li><a href="/tools/cgpa-calculator.html">CGPA Calculator</a></li><li><a href="/tools/attendance-calculator.html">Attendance Calculator</a></li><li><a href="/tools/emi-calculator.html">EMI Calculator</a></li><li><a href="/tools/sip-calculator.html">SIP Calculator</a></li><li><a href="/tools/gst-calculator.html">GST Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+          <li><a href="/disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> ToolNagri. Made in India. All tools are free to use.</span>
+      <span>Contact: <a href="mailto:hello@toolnagri.in">hello@toolnagri.in</a></span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

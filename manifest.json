@@ -1,0 +1,23 @@
+{
+  "name": "ToolNagri",
+  "short_name": "ToolNagri",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbfbfa",
+  "theme_color": "#146356",
+  "description": "ToolNagri is a free online utility hub with calculators, converters, PDF tools and career tools for Indian students and professionals. No signup required.",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

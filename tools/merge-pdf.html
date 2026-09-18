@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merge PDF &mdash; Free Online Tool | ToolNagri</title>
+<meta name="description" content="Combine multiple PDF files into one, entirely in your browser.">
+<link rel="canonical" href="https://toolnagri.in/tools/merge-pdf.html">
+<meta property="og:title" content="Merge PDF &mdash; Free Online Tool | ToolNagri">
+<meta property="og:description" content="Combine multiple PDF files into one, entirely in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://toolnagri.in/tools/merge-pdf.html">
+<meta property="og:site_name" content="ToolNagri">
+<meta property="og:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Merge PDF &mdash; Free Online Tool | ToolNagri">
+<meta name="twitter:description" content="Combine multiple PDF files into one, entirely in your browser.">
+<meta name="twitter:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta name="theme-color" content="#146356">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/tools-data.js"></script>
+<script src="/assets/js/site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Merge PDF", "applicationCategory": "UtilityApplication", "operatingSystem": "Any (web browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "url": "https://toolnagri.in/tools/merge-pdf.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I merge password-protected PDFs?", "acceptedAnswer": {"@type": "Answer", "text": "Encrypted or password-protected PDFs generally cannot be read by the browser-based library used here. Remove the password first using a PDF editor, then merge."}}, {"@type": "Question", "name": "Is there a limit on how many files I can merge?", "acceptedAnswer": {"@type": "Answer", "text": "There's no hard limit, but very large or numerous PDFs may be slow to process depending on your device's memory."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolnagri.in/"}, {"@type": "ListItem", "position": 2, "name": "PDF & Document Tools", "item": "https://toolnagri.in/categories/pdf.html"}, {"@type": "ListItem", "position": 3, "name": "Merge PDF", "item": "https://toolnagri.in/tools/merge-pdf.html"}]}</script>
+</head>
+<body data-tool-slug="merge-pdf">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container row">
+    <a class="brand" href="/">
+      <span class="dot" aria-hidden="true"></span>ToolNagri
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links"><li><a href="/categories/student.html">Student</a></li><li><a href="/categories/finance.html">Finance</a></li><li><a href="/categories/pdf.html">PDF</a></li><li><a href="/categories/career.html">Career</a></li><li><a href="/tools.html">All Tools</a></li></ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="container" style="padding-top:20px">
+  <p class="breadcrumb"><a href="/">Home</a> / <a href="/categories/pdf.html">PDF & Document Tools</a> / Merge PDF</p>
+  <div class="tool-header">
+    <h1>Merge PDF</h1>
+    <p class="desc">Combine multiple PDF files into one, entirely in your browser.</p>
+  </div>
+
+  <div class="tool-panel">
+    
+    <div id="mp-dropzone" class="drop-zone">
+      <p><strong>Drag & drop PDF files here</strong>, or</p>
+      <label class="btn btn-secondary" for="mp-file" style="display:inline-flex;margin-top:6px">Choose PDF files</label>
+      <input id="mp-file" type="file" accept="application/pdf" multiple style="display:none">
+      <p class="search-hint">Add 2 or more PDFs, up to 25 MB each. Processed entirely in your browser.</p>
+    </div>
+    <ul id="mp-list" class="file-list"></ul>
+    <div id="error-box" class="error-msg hidden"></div>
+    <div class="row-actions" style="margin-top:14px">
+      <button type="button" id="mp-generate" class="btn btn-primary" disabled>Merge PDFs</button>
+      <button type="button" id="mp-reset" class="btn btn-secondary">Clear all</button>
+    </div>
+    <div id="result-box" class="result-card hidden">
+      <p>Your merged PDF is ready.</p>
+      <a id="mp-download" class="btn btn-primary" download="merged.pdf">Download merged PDF</a>
+    </div>
+    
+  </div>
+  
+
+  <div class="content-block">
+    <h2>How it works</h2>
+    <p>Each PDF you add is read and its pages are copied, in order, into one new PDF document &mdash; entirely inside your browser using an open-source PDF library. Files are never uploaded to a server.</p>
+    <h2>Example</h2>
+    <p>Add report-part1.pdf and report-part2.pdf, merge, and download a single combined PDF with all pages from both files in order.</p>
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary>Can I merge password-protected PDFs?</summary><p>Encrypted or password-protected PDFs generally cannot be read by the browser-based library used here. Remove the password first using a PDF editor, then merge.</p></details>
+<details><summary>Is there a limit on how many files I can merge?</summary><p>There's no hard limit, but very large or numerous PDFs may be slow to process depending on your device's memory.</p></details>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-head"><h2>Related tools</h2></div>
+    <div class="grid grid-4">
+      <a class="tool-card" href="/tools/jpg-to-pdf.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>JPG to PDF</h3>
+      <p>Convert one or more JPG/PNG images into a single PDF, with reordering and rotation, processed locally.</p>
+    </a>
+<a class="tool-card" href="/tools/pdf-to-jpg.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>PDF to JPG</h3>
+      <p>Convert PDF pages into JPG images, processed locally in your browser.</p>
+    </a>
+<a class="tool-card" href="/tools/pdf-to-png.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>PDF to PNG</h3>
+      <p>Convert PDF pages into PNG images with transparency support, processed locally.</p>
+    </a>
+<a class="tool-card" href="/tools/compress-pdf.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>Compress PDF</h3>
+      <p>Reduce PDF file size by re-encoding pages at a quality you choose, processed locally.</p>
+    </a>
+    </div>
+  </section>
+</div>
+<script>
+    (function(){
+      var files = [];
+      var dz = document.getElementById('mp-dropzone');
+      var input = document.getElementById('mp-file');
+      var listEl = document.getElementById('mp-list');
+      var genBtn = document.getElementById('mp-generate');
+      function showError(msg){
+        var box = document.getElementById('error-box');
+        box.textContent = msg; box.classList.remove('hidden');
+      }
+      function renderList(){
+        listEl.innerHTML = '';
+        files.forEach(function(f,i){
+          var li = document.createElement('li');
+          li.innerHTML = '<span>' + (i+1) + '. ' + f.name + '</span>';
+          var btn = document.createElement('button');
+          btn.textContent = 'Remove'; btn.className='btn btn-ghost';
+          btn.addEventListener('click', function(){ files.splice(i,1); renderList(); });
+          li.appendChild(btn);
+          listEl.appendChild(li);
+        });
+        genBtn.disabled = files.length < 2;
+      }
+      function addFiles(fileList){
+        document.getElementById('error-box').classList.add('hidden');
+        for (var i=0;i<fileList.length;i++){
+          var f = fileList[i];
+          if (f.type !== 'application/pdf') { showError('Only PDF files are supported. Skipped: ' + f.name); continue; }
+          if (f.size > 25*1024*1024) { showError('Skipped ' + f.name + ' (over 25 MB).'); continue; }
+          files.push(f);
+        }
+        renderList();
+      }
+      ['dragover','dragenter'].forEach(function(evt){ dz.addEventListener(evt, function(e){ e.preventDefault(); dz.classList.add('dragover'); }); });
+      ['dragleave','drop'].forEach(function(evt){ dz.addEventListener(evt, function(e){ e.preventDefault(); dz.classList.remove('dragover'); }); });
+      dz.addEventListener('drop', function(e){ addFiles(e.dataTransfer.files); });
+      input.addEventListener('change', function(){ addFiles(input.files); input.value=''; });
+
+      genBtn.addEventListener('click', async function(){
+        document.getElementById('error-box').classList.add('hidden');
+        if (typeof PDFLib === 'undefined') { showError('The PDF library failed to load. Please check your internet connection and try again.'); return; }
+        if (files.length < 2) { showError('Please add at least two PDF files to merge.'); return; }
+        genBtn.disabled = true; genBtn.textContent = 'Merging...';
+        try {
+          var mergedPdf = await PDFLib.PDFDocument.create();
+          for (var i=0;i<files.length;i++){
+            var bytes = await files[i].arrayBuffer();
+            var src = await PDFLib.PDFDocument.load(bytes, {ignoreEncryption:true});
+            var pages = await mergedPdf.copyPages(src, src.getPageIndices());
+            pages.forEach(function(p){ mergedPdf.addPage(p); });
+          }
+          var pdfBytes = await mergedPdf.save();
+          var blob = new Blob([pdfBytes], {type:'application/pdf'});
+          var url = URL.createObjectURL(blob);
+          document.getElementById('mp-download').href = url;
+          document.getElementById('result-box').classList.remove('hidden');
+        } catch (err) {
+          showError('One of these PDFs could not be read (it may be corrupted or password-protected). Please check the files and try again.');
+        } finally {
+          genBtn.disabled = false; genBtn.textContent = 'Merge PDFs';
+        }
+      });
+      document.getElementById('mp-reset').addEventListener('click', function(){
+        files = []; renderList();
+        document.getElementById('result-box').classList.add('hidden');
+        document.getElementById('error-box').classList.add('hidden');
+      });
+    })();
+    </script>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/" style="margin-bottom:10px"><span class="dot"></span>ToolNagri</a>
+        <p style="color:var(--ink-soft);font-size:.9rem;max-width:320px">ToolNagri is a free online utility hub with calculators, converters, PDF tools and career tools for Indian students and professionals. No signup required.</p>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="/categories/student.html">Student Tools</a></li><li><a href="/categories/finance.html">Finance Tools</a></li><li><a href="/categories/pdf.html">PDF & Document Tools</a></li><li><a href="/categories/ai.html">AI Tools</a></li><li><a href="/categories/calculators.html">Calculators</a></li><li><a href="/categories/converters.html">Converters</a></li><li><a href="/categories/career.html">Career Tools</a></li><li><a href="/categories/everyday.html">Everyday Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Popular Tools</h4>
+        <ul>
+          <li><a href="/tools/sgpa-calculator.html">SGPA Calculator</a></li><li><a href="/tools/cgpa-calculator.html">CGPA Calculator</a></li><li><a href="/tools/attendance-calculator.html">Attendance Calculator</a></li><li><a href="/tools/emi-calculator.html">EMI Calculator</a></li><li><a href="/tools/sip-calculator.html">SIP Calculator</a></li><li><a href="/tools/gst-calculator.html">GST Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+          <li><a href="/disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> ToolNagri. Made in India. All tools are free to use.</span>
+      <span>Contact: <a href="mailto:hello@toolnagri.in">hello@toolnagri.in</a></span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

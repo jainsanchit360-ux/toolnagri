@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Split PDF &mdash; Free Online Tool | ToolNagri</title>
+<meta name="description" content="Split a PDF into individual pages or custom page ranges, processed locally.">
+<link rel="canonical" href="https://toolnagri.in/tools/split-pdf.html">
+<meta property="og:title" content="Split PDF &mdash; Free Online Tool | ToolNagri">
+<meta property="og:description" content="Split a PDF into individual pages or custom page ranges, processed locally.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://toolnagri.in/tools/split-pdf.html">
+<meta property="og:site_name" content="ToolNagri">
+<meta property="og:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Split PDF &mdash; Free Online Tool | ToolNagri">
+<meta name="twitter:description" content="Split a PDF into individual pages or custom page ranges, processed locally.">
+<meta name="twitter:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta name="theme-color" content="#146356">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/tools-data.js"></script>
+<script src="/assets/js/site.js"></script>
+<script src="/assets/js/pdf-engine.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Split PDF", "applicationCategory": "UtilityApplication", "operatingSystem": "Any (web browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "url": "https://toolnagri.in/tools/split-pdf.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I extract non-consecutive pages?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use comma-separated values and ranges together, e.g. \"1,3,5-7\" extracts pages 1, 3, 5, 6 and 7 into one PDF."}}, {"@type": "Question", "name": "Does splitting reduce quality?", "acceptedAnswer": {"@type": "Answer", "text": "No. Pages are copied at their original quality; nothing is re-rendered or recompressed."}}, {"@type": "Question", "name": "Is there a page limit?", "acceptedAnswer": {"@type": "Answer", "text": "No hard limit, but very large PDFs (hundreds of pages) split into individual files may take a little longer and use more memory."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolnagri.in/"}, {"@type": "ListItem", "position": 2, "name": "PDF & Document Tools", "item": "https://toolnagri.in/categories/pdf.html"}, {"@type": "ListItem", "position": 3, "name": "Split PDF", "item": "https://toolnagri.in/tools/split-pdf.html"}]}</script>
+</head>
+<body data-tool-slug="split-pdf">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container row">
+    <a class="brand" href="/">
+      <span class="dot" aria-hidden="true"></span>ToolNagri
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links"><li><a href="/categories/student.html">Student</a></li><li><a href="/categories/finance.html">Finance</a></li><li><a href="/categories/pdf.html">PDF</a></li><li><a href="/categories/career.html">Career</a></li><li><a href="/tools.html">All Tools</a></li></ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="container" style="padding-top:20px">
+  <p class="breadcrumb"><a href="/">Home</a> / <a href="/categories/pdf.html">PDF & Document Tools</a> / Split PDF</p>
+  <div class="tool-header">
+    <h1>Split PDF</h1>
+    <p class="desc">Split a PDF into individual pages or custom page ranges, processed locally.</p>
+  </div>
+
+  <div class="tool-panel">
+    
+    <div id="sp-dropzone" class="drop-zone">
+      <p><strong>Drag & drop a PDF here</strong>, or</p>
+      <label class="btn btn-secondary" for="sp-file" style="display:inline-flex;margin-top:6px">Choose PDF</label>
+      <input id="sp-file" type="file" accept="application/pdf" style="display:none">
+      <p class="search-hint">One PDF at a time, up to 40 MB. Processed entirely in your browser.</p>
+    </div>
+    <div id="sp-options" style="display:none;margin-top:16px">
+      <p class="field hint" id="sp-filename"></p>
+      <div class="field">
+        <label for="sp-mode">Split mode</label>
+        <select id="sp-mode">
+          <option value="all">Every page as a separate PDF</option>
+          <option value="range">Extract a custom page range</option>
+        </select>
+      </div>
+      <div id="sp-range-field" class="field" style="display:none">
+        <label for="sp-range">Page range (e.g. 1-3 or 1,3,5)</label>
+        <input id="sp-range" type="text" placeholder="1-3">
+      </div>
+      <div class="row-actions">
+        <button type="button" id="sp-run" class="btn btn-primary">Split PDF</button>
+        <button type="button" id="sp-reset" class="btn btn-secondary">Choose another file</button>
+      </div>
+      <div id="sp-progress" class="notice hidden"></div>
+    </div>
+    <div id="error-box" class="error-msg hidden"></div>
+    <div id="result-box" class="result-card hidden">
+      <p id="sp-result-text">Your split PDF is ready.</p>
+      <div class="row-actions"><a id="sp-download" class="btn btn-primary">Download</a></div>
+    </div>
+    
+  </div>
+  
+
+  <div class="content-block">
+    <h2>How it works</h2>
+    <p>Your PDF is read directly in the browser using an open-source PDF library. In 'every page separate' mode, each page is copied into its own new PDF and all of them are packaged into a zip. In 'custom range' mode, only the pages you specify are copied into a single new PDF. The original file is never uploaded anywhere.</p>
+    <h2>Example</h2>
+    <p>Upload a 10-page report and choose 'custom range' with "1-3" to get a 3-page PDF containing just the first section. Or choose 'every page separate' to get a zip with 10 single-page PDFs.</p>
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary>Can I extract non-consecutive pages?</summary><p>Yes. Use comma-separated values and ranges together, e.g. "1,3,5-7" extracts pages 1, 3, 5, 6 and 7 into one PDF.</p></details>
+<details><summary>Does splitting reduce quality?</summary><p>No. Pages are copied at their original quality; nothing is re-rendered or recompressed.</p></details>
+<details><summary>Is there a page limit?</summary><p>No hard limit, but very large PDFs (hundreds of pages) split into individual files may take a little longer and use more memory.</p></details>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-head"><h2>Related tools</h2></div>
+    <div class="grid grid-4">
+      <a class="tool-card" href="/tools/jpg-to-pdf.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>JPG to PDF</h3>
+      <p>Convert one or more JPG/PNG images into a single PDF, with reordering and rotation, processed locally.</p>
+    </a>
+<a class="tool-card" href="/tools/merge-pdf.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>Merge PDF</h3>
+      <p>Combine multiple PDF files into one, entirely in your browser.</p>
+    </a>
+<a class="tool-card" href="/tools/pdf-to-jpg.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>PDF to JPG</h3>
+      <p>Convert PDF pages into JPG images, processed locally in your browser.</p>
+    </a>
+<a class="tool-card" href="/tools/compress-pdf.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>Compress PDF</h3>
+      <p>Reduce PDF file size by re-encoding pages at a quality you choose, processed locally.</p>
+    </a>
+    </div>
+  </section>
+</div>
+<script>
+    (function(){
+      var file = null;
+      var dz = document.getElementById('sp-dropzone');
+      var input = document.getElementById('sp-file');
+      var modeSel = document.getElementById('sp-mode');
+      modeSel.addEventListener('change', function(){
+        document.getElementById('sp-range-field').style.display = modeSel.value === 'range' ? 'block' : 'none';
+      });
+      function showError(msg){
+        document.getElementById('error-box').textContent = msg;
+        document.getElementById('error-box').classList.remove('hidden');
+        document.getElementById('result-box').classList.add('hidden');
+      }
+      function setProgress(msg){
+        var p = document.getElementById('sp-progress');
+        if (!msg) { p.classList.add('hidden'); return; }
+        p.textContent = msg; p.classList.remove('hidden');
+      }
+      function handleFile(f){
+        document.getElementById('error-box').classList.add('hidden');
+        if (f.type !== 'application/pdf') { showError('Please choose a PDF file.'); return; }
+        if (f.size > 40*1024*1024) { showError('File is too large. Please choose a PDF under 40 MB.'); return; }
+        file = f;
+        document.getElementById('sp-filename').textContent = 'Selected: ' + f.name + ' (' + window.ToolNagriPDF.formatBytes(f.size) + ')';
+        document.getElementById('sp-options').style.display = 'block';
+      }
+      ['dragover','dragenter'].forEach(function(evt){ dz.addEventListener(evt, function(e){ e.preventDefault(); dz.classList.add('dragover'); }); });
+      ['dragleave','drop'].forEach(function(evt){ dz.addEventListener(evt, function(e){ e.preventDefault(); dz.classList.remove('dragover'); }); });
+      dz.addEventListener('drop', function(e){ if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); });
+      input.addEventListener('change', function(){ if (input.files.length) handleFile(input.files[0]); input.value=''; });
+
+      function parseRange(str, maxPage){
+        var pages = new Set();
+        var parts = str.split(',');
+        for (var i=0;i<parts.length;i++){
+          var p = parts[i].trim();
+          if (!p) continue;
+          if (p.indexOf('-') > -1) {
+            var bounds = p.split('-').map(function(n){ return parseInt(n.trim(),10); });
+            if (bounds.length !== 2 || isNaN(bounds[0]) || isNaN(bounds[1])) throw new Error('bad_range');
+            for (var n=bounds[0]; n<=bounds[1]; n++) pages.add(n);
+          } else {
+            var num = parseInt(p,10);
+            if (isNaN(num)) throw new Error('bad_range');
+            pages.add(num);
+          }
+        }
+        var arr = Array.from(pages).sort(function(a,b){return a-b;});
+        if (arr.length === 0) throw new Error('bad_range');
+        if (arr[0] < 1 || arr[arr.length-1] > maxPage) throw new Error('out_of_range');
+        return arr;
+      }
+
+      function friendlyError(msg){ var e = new Error(msg); e.isFriendly = true; return e; }
+
+      document.getElementById('sp-run').addEventListener('click', async function(){
+        document.getElementById('error-box').classList.add('hidden');
+        if (!file) { showError('Please choose a PDF first.'); return; }
+        if (typeof PDFLib === 'undefined') { showError('The PDF library failed to load. Please check your internet connection and try again.'); return; }
+        var btn = this; btn.disabled = true; btn.textContent = 'Splitting...';
+        try {
+          setProgress('Reading PDF...');
+          var bytes = await file.arrayBuffer();
+          var src;
+          try {
+            src = await PDFLib.PDFDocument.load(bytes, {ignoreEncryption:true});
+          } catch (loadErr) {
+            throw friendlyError('This file could not be read as a PDF. It may be corrupted, password-protected, or not a valid PDF file.');
+          }
+          var pageCount = src.getPageCount();
+          var baseName = file.name.replace(/\.pdf$/i, '');
+
+          if (modeSel.value === 'range') {
+            var rangeStr = document.getElementById('sp-range').value.trim();
+            if (!rangeStr) { throw friendlyError('Please enter a page range, like "1-3" or "1,3,5".'); }
+            var pages;
+            try { pages = parseRange(rangeStr, pageCount); }
+            catch (e) {
+              if (e.message === 'out_of_range') throw friendlyError('This PDF only has ' + pageCount + ' pages. Please enter a range within 1-' + pageCount + '.');
+              throw friendlyError('Please enter a valid page range, like "1-3" or "1,3,5".');
+            }
+            setProgress('Extracting ' + pages.length + ' page(s)...');
+            var outDoc = await PDFLib.PDFDocument.create();
+            var copied = await outDoc.copyPages(src, pages.map(function(p){ return p-1; }));
+            copied.forEach(function(p){ outDoc.addPage(p); });
+            var outBytes = await outDoc.save();
+            var blob = new Blob([outBytes], {type:'application/pdf'});
+            document.getElementById('sp-download').href = URL.createObjectURL(blob);
+            document.getElementById('sp-download').setAttribute('download', baseName + '-pages-' + rangeStr.replace(/[^0-9,\-]/g,'') + '.pdf');
+            document.getElementById('sp-result-text').textContent = 'Extracted ' + pages.length + ' page(s) from your PDF.';
+          } else {
+            if (pageCount === 1) { throw friendlyError('This PDF only has 1 page, so there is nothing to split. Try a multi-page PDF.'); }
+            setProgress('Splitting into ' + pageCount + ' individual PDFs...');
+            var JSZip = await window.ToolNagriPDF.ensureJSZip();
+            var zip = new JSZip();
+            for (var i=0; i<pageCount; i++){
+              setProgress('Processing page ' + (i+1) + ' of ' + pageCount + '...');
+              var doc = await PDFLib.PDFDocument.create();
+              var cp = await doc.copyPages(src, [i]);
+              doc.addPage(cp[0]);
+              var pBytes = await doc.save();
+              zip.file(baseName + '-page-' + (i+1) + '.pdf', pBytes);
+            }
+            setProgress('Packaging into a zip...');
+            var zipBlob = await zip.generateAsync({type:'blob'});
+            document.getElementById('sp-download').href = URL.createObjectURL(zipBlob);
+            document.getElementById('sp-download').setAttribute('download', baseName + '-split-pages.zip');
+            document.getElementById('sp-result-text').textContent = 'Split into ' + pageCount + ' individual PDFs, packaged as a zip.';
+          }
+          setProgress(null);
+          document.getElementById('result-box').classList.remove('hidden');
+        } catch (err) {
+          setProgress(null);
+          showError(err && err.isFriendly ? err.message : 'Something went wrong reading or splitting this PDF. Please check the file and try again.');
+        } finally {
+          btn.disabled = false; btn.textContent = 'Split PDF';
+        }
+      });
+
+      document.getElementById('sp-reset').addEventListener('click', function(){
+        file = null; input.value = '';
+        document.getElementById('sp-options').style.display = 'none';
+        document.getElementById('result-box').classList.add('hidden');
+        document.getElementById('error-box').classList.add('hidden');
+        setProgress(null);
+      });
+    })();
+    </script>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/" style="margin-bottom:10px"><span class="dot"></span>ToolNagri</a>
+        <p style="color:var(--ink-soft);font-size:.9rem;max-width:320px">ToolNagri is a free online utility hub with calculators, converters, PDF tools and career tools for Indian students and professionals. No signup required.</p>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="/categories/student.html">Student Tools</a></li><li><a href="/categories/finance.html">Finance Tools</a></li><li><a href="/categories/pdf.html">PDF & Document Tools</a></li><li><a href="/categories/ai.html">AI Tools</a></li><li><a href="/categories/calculators.html">Calculators</a></li><li><a href="/categories/converters.html">Converters</a></li><li><a href="/categories/career.html">Career Tools</a></li><li><a href="/categories/everyday.html">Everyday Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Popular Tools</h4>
+        <ul>
+          <li><a href="/tools/sgpa-calculator.html">SGPA Calculator</a></li><li><a href="/tools/cgpa-calculator.html">CGPA Calculator</a></li><li><a href="/tools/attendance-calculator.html">Attendance Calculator</a></li><li><a href="/tools/emi-calculator.html">EMI Calculator</a></li><li><a href="/tools/sip-calculator.html">SIP Calculator</a></li><li><a href="/tools/gst-calculator.html">GST Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+          <li><a href="/disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> ToolNagri. Made in India. All tools are free to use.</span>
+      <span>Contact: <a href="mailto:hello@toolnagri.in">hello@toolnagri.in</a></span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

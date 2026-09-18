@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF to PNG &mdash; Free Online Tool | ToolNagri</title>
+<meta name="description" content="Convert PDF pages into PNG images with transparency support, processed locally.">
+<link rel="canonical" href="https://toolnagri.in/tools/pdf-to-png.html">
+<meta property="og:title" content="PDF to PNG &mdash; Free Online Tool | ToolNagri">
+<meta property="og:description" content="Convert PDF pages into PNG images with transparency support, processed locally.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://toolnagri.in/tools/pdf-to-png.html">
+<meta property="og:site_name" content="ToolNagri">
+<meta property="og:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PDF to PNG &mdash; Free Online Tool | ToolNagri">
+<meta name="twitter:description" content="Convert PDF pages into PNG images with transparency support, processed locally.">
+<meta name="twitter:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta name="theme-color" content="#146356">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/tools-data.js"></script>
+<script src="/assets/js/site.js"></script>
+<script src="/assets/js/pdf-engine.js"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PDF to PNG", "applicationCategory": "UtilityApplication", "operatingSystem": "Any (web browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "url": "https://toolnagri.in/tools/pdf-to-png.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "PNG or JPG \u2014 which should I use?", "acceptedAnswer": {"@type": "Answer", "text": "Use PNG for text, diagrams, or anything needing sharp edges. Use JPG (the PDF to JPG tool) for photos or when you want a smaller file size."}}, {"@type": "Question", "name": "Does this upload my PDF anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Rendering happens entirely in your browser. Your file is never sent to a server."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolnagri.in/"}, {"@type": "ListItem", "position": 2, "name": "PDF & Document Tools", "item": "https://toolnagri.in/categories/pdf.html"}, {"@type": "ListItem", "position": 3, "name": "PDF to PNG", "item": "https://toolnagri.in/tools/pdf-to-png.html"}]}</script>
+</head>
+<body data-tool-slug="pdf-to-png">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container row">
+    <a class="brand" href="/">
+      <span class="dot" aria-hidden="true"></span>ToolNagri
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links"><li><a href="/categories/student.html">Student</a></li><li><a href="/categories/finance.html">Finance</a></li><li><a href="/categories/pdf.html">PDF</a></li><li><a href="/categories/career.html">Career</a></li><li><a href="/tools.html">All Tools</a></li></ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="container" style="padding-top:20px">
+  <p class="breadcrumb"><a href="/">Home</a> / <a href="/categories/pdf.html">PDF & Document Tools</a> / PDF to PNG</p>
+  <div class="tool-header">
+    <h1>PDF to PNG</h1>
+    <p class="desc">Convert PDF pages into PNG images with transparency support, processed locally.</p>
+  </div>
+
+  <div class="tool-panel">
+    
+    <div id="p2i-dropzone" class="drop-zone">
+      <p><strong>Drag & drop a PDF here</strong>, or</p>
+      <label class="btn btn-secondary" for="p2i-file" style="display:inline-flex;margin-top:6px">Choose PDF</label>
+      <input id="p2i-file" type="file" accept="application/pdf" style="display:none">
+      <p class="search-hint">One PDF at a time, up to 40 MB. Every page becomes one PNG image (supports transparency for pages with no background fill). Processed entirely in your browser.</p>
+    </div>
+    <div id="p2i-options" style="display:none;margin-top:16px">
+      <p class="field hint" id="p2i-filename"></p>
+      <div class="field">
+        <label for="p2i-quality">Image quality: <span id="p2i-quality-val">85</span>%</label>
+        <input id="p2i-quality" type="range" min="40" max="100" value="85">
+      </div>
+      <div class="row-actions">
+        <button type="button" id="p2i-convert" class="btn btn-primary">Convert to PNG</button>
+        <button type="button" id="p2i-reset" class="btn btn-secondary">Choose another file</button>
+      </div>
+      <div id="p2i-progress" class="notice hidden"></div>
+    </div>
+    <div id="error-box" class="error-msg hidden"></div>
+    <div id="result-box" class="result-card hidden">
+      <p id="p2i-result-text">Your images are ready.</p>
+      <div class="row-actions"><a id="p2i-download" class="btn btn-primary">Download</a></div>
+    </div>
+    
+  </div>
+  
+
+  <div class="content-block">
+    <h2>How it works</h2>
+    <p>Each page of your PDF is rendered onto an in-memory canvas at high resolution using pdf.js, then exported as a PNG. PNG is lossless, so it's a good choice when you need crisp text or line art rather than the smaller file size of JPG. If your PDF has more than one page, all the PNGs are packaged into a single zip file. The file never leaves your device.</p>
+    <h2>Example</h2>
+    <p>Upload a 3-page PDF slide deck, click convert, and download a zip with three full-resolution PNG images, one per slide.</p>
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary>PNG or JPG — which should I use?</summary><p>Use PNG for text, diagrams, or anything needing sharp edges. Use JPG (the PDF to JPG tool) for photos or when you want a smaller file size.</p></details>
+<details><summary>Does this upload my PDF anywhere?</summary><p>No. Rendering happens entirely in your browser. Your file is never sent to a server.</p></details>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-head"><h2>Related tools</h2></div>
+    <div class="grid grid-4">
+      <a class="tool-card" href="/tools/jpg-to-pdf.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>JPG to PDF</h3>
+      <p>Convert one or more JPG/PNG images into a single PDF, with reordering and rotation, processed locally.</p>
+    </a>
+<a class="tool-card" href="/tools/pdf-to-jpg.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>PDF to JPG</h3>
+      <p>Convert PDF pages into JPG images, processed locally in your browser.</p>
+    </a>
+<a class="tool-card" href="/tools/compress-pdf.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>Compress PDF</h3>
+      <p>Reduce PDF file size by re-encoding pages at a quality you choose, processed locally.</p>
+    </a>
+<a class="tool-card" href="/tools/split-pdf.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>Split PDF</h3>
+      <p>Split a PDF into individual pages or custom page ranges, processed locally.</p>
+    </a>
+    </div>
+  </section>
+</div>
+<script>
+    (function(){
+      var file = null;
+      var dz = document.getElementById('p2i-dropzone');
+      var input = document.getElementById('p2i-file');
+      var optionsBox = document.getElementById('p2i-options');
+      function showError(msg){
+        var box = document.getElementById('error-box');
+        box.textContent = msg; box.classList.remove('hidden');
+        document.getElementById('result-box').classList.add('hidden');
+      }
+      function setProgress(msg){
+        var p = document.getElementById('p2i-progress');
+        if (!msg) { p.classList.add('hidden'); return; }
+        p.textContent = msg; p.classList.remove('hidden');
+      }
+      function handleFile(f){
+        document.getElementById('error-box').classList.add('hidden');
+        if (f.type !== 'application/pdf') { showError('Please choose a PDF file.'); return; }
+        if (f.size > 40*1024*1024) { showError('File is too large. Please choose a PDF under 40 MB.'); return; }
+        file = f;
+        document.getElementById('p2i-filename').textContent = 'Selected: ' + f.name + ' (' + window.ToolNagriPDF.formatBytes(f.size) + ')';
+        optionsBox.style.display = 'block';
+      }
+      ['dragover','dragenter'].forEach(function(evt){ dz.addEventListener(evt, function(e){ e.preventDefault(); dz.classList.add('dragover'); }); });
+      ['dragleave','drop'].forEach(function(evt){ dz.addEventListener(evt, function(e){ e.preventDefault(); dz.classList.remove('dragover'); }); });
+      dz.addEventListener('drop', function(e){ if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); });
+      input.addEventListener('change', function(){ if (input.files.length) handleFile(input.files[0]); input.value=''; });
+
+      document.getElementById('p2i-quality').addEventListener('input', function(){
+        document.getElementById('p2i-quality-val').textContent = this.value;
+      });
+
+      document.getElementById('p2i-convert').addEventListener('click', async function(){
+        document.getElementById('error-box').classList.add('hidden');
+        if (!file) { showError('Please choose a PDF first.'); return; }
+        var btn = this; btn.disabled = true; btn.textContent = 'Converting...';
+        try {
+          setProgress('Loading PDF engine...');
+          var pdfjsLib = await window.ToolNagriPDF.ensurePdfJs();
+          var buf = await file.arrayBuffer();
+          var pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+          var quality = parseInt(document.getElementById('p2i-quality').value, 10) / 100;
+          var baseName = file.name.replace(/\.pdf$/i, '');
+          var images = [];
+          for (var i = 1; i <= pdf.numPages; i++) {
+            setProgress('Rendering page ' + i + ' of ' + pdf.numPages + '...');
+            var canvas = await window.ToolNagriPDF.renderPageToCanvas(pdf, i, 2);
+            var dataUrl = canvas.toDataURL('image/png', quality);
+            images.push({ name: baseName + '-page-' + i + '.png', dataUrl: dataUrl });
+          }
+          if (images.length === 1) {
+            setProgress(null);
+            var res = await fetch(images[0].dataUrl);
+            var blob = await res.blob();
+            document.getElementById('p2i-download').href = URL.createObjectURL(blob);
+            document.getElementById('p2i-download').setAttribute('download', images[0].name);
+            document.getElementById('p2i-result-text').textContent = 'Your image is ready (1 page).';
+          } else {
+            setProgress('Packaging ' + images.length + ' images into a zip...');
+            var JSZip = await window.ToolNagriPDF.ensureJSZip();
+            var zip = new JSZip();
+            for (var j = 0; j < images.length; j++) {
+              var r = await fetch(images[j].dataUrl);
+              var b = await r.blob();
+              zip.file(images[j].name, b);
+            }
+            var zipBlob = await zip.generateAsync({ type: 'blob' });
+            document.getElementById('p2i-download').href = URL.createObjectURL(zipBlob);
+            document.getElementById('p2i-download').setAttribute('download', baseName + '-png-pages.zip');
+            document.getElementById('p2i-result-text').textContent = 'Your images are ready (' + images.length + ' pages, packaged as a zip).';
+            setProgress(null);
+          }
+          document.getElementById('result-box').classList.remove('hidden');
+        } catch (err) {
+          setProgress(null);
+          showError('The PDF engine failed to load or this file could not be processed. Please check your internet connection and try again, or try a different PDF.');
+        } finally {
+          btn.disabled = false; btn.textContent = 'Convert to PNG';
+        }
+      });
+
+      document.getElementById('p2i-reset').addEventListener('click', function(){
+        file = null; input.value = '';
+        optionsBox.style.display = 'none';
+        document.getElementById('result-box').classList.add('hidden');
+        document.getElementById('error-box').classList.add('hidden');
+        setProgress(null);
+      });
+    })();
+    </script>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/" style="margin-bottom:10px"><span class="dot"></span>ToolNagri</a>
+        <p style="color:var(--ink-soft);font-size:.9rem;max-width:320px">ToolNagri is a free online utility hub with calculators, converters, PDF tools and career tools for Indian students and professionals. No signup required.</p>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="/categories/student.html">Student Tools</a></li><li><a href="/categories/finance.html">Finance Tools</a></li><li><a href="/categories/pdf.html">PDF & Document Tools</a></li><li><a href="/categories/ai.html">AI Tools</a></li><li><a href="/categories/calculators.html">Calculators</a></li><li><a href="/categories/converters.html">Converters</a></li><li><a href="/categories/career.html">Career Tools</a></li><li><a href="/categories/everyday.html">Everyday Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Popular Tools</h4>
+        <ul>
+          <li><a href="/tools/sgpa-calculator.html">SGPA Calculator</a></li><li><a href="/tools/cgpa-calculator.html">CGPA Calculator</a></li><li><a href="/tools/attendance-calculator.html">Attendance Calculator</a></li><li><a href="/tools/emi-calculator.html">EMI Calculator</a></li><li><a href="/tools/sip-calculator.html">SIP Calculator</a></li><li><a href="/tools/gst-calculator.html">GST Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+          <li><a href="/disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> ToolNagri. Made in India. All tools are free to use.</span>
+      <span>Contact: <a href="mailto:hello@toolnagri.in">hello@toolnagri.in</a></span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

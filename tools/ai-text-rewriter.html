@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Text Rewriter &mdash; Free Online Tool | ToolNagri</title>
+<meta name="description" content="Rewrite text with AI assistance — provider-pluggable, currently pending a free AI connection.">
+<link rel="canonical" href="https://toolnagri.in/tools/ai-text-rewriter.html">
+<meta property="og:title" content="AI Text Rewriter &mdash; Free Online Tool | ToolNagri">
+<meta property="og:description" content="Rewrite text with AI assistance — provider-pluggable, currently pending a free AI connection.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://toolnagri.in/tools/ai-text-rewriter.html">
+<meta property="og:site_name" content="ToolNagri">
+<meta property="og:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Text Rewriter &mdash; Free Online Tool | ToolNagri">
+<meta name="twitter:description" content="Rewrite text with AI assistance — provider-pluggable, currently pending a free AI connection.">
+<meta name="twitter:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta name="theme-color" content="#146356">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/tools-data.js"></script>
+<script src="/assets/js/site.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "AI Text Rewriter", "applicationCategory": "UtilityApplication", "operatingSystem": "Any (web browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "url": "https://toolnagri.in/tools/ai-text-rewriter.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why isn't this tool working yet?", "acceptedAnswer": {"@type": "Answer", "text": "AI tools are deliberately isolated from the rest of the site so that connecting an AI provider is optional. This deployment does not yet have a free AI provider wired up on the backend, so the tool shows an honest status message rather than a broken or fake result."}}, {"@type": "Question", "name": "Will this ever cost money to use?", "acceptedAnswer": {"@type": "Answer", "text": "The goal is to keep a free tier available, likely with a daily usage limit for anonymous users, funded by ethical ads/premium features elsewhere on the site &mdash; not to promise unlimited free AI forever."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolnagri.in/"}, {"@type": "ListItem", "position": 2, "name": "AI Tools", "item": "https://toolnagri.in/categories/ai.html"}, {"@type": "ListItem", "position": 3, "name": "AI Text Rewriter", "item": "https://toolnagri.in/tools/ai-text-rewriter.html"}]}</script>
+</head>
+<body data-tool-slug="ai-text-rewriter">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container row">
+    <a class="brand" href="/">
+      <span class="dot" aria-hidden="true"></span>ToolNagri
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links"><li><a href="/categories/student.html">Student</a></li><li><a href="/categories/finance.html">Finance</a></li><li><a href="/categories/pdf.html">PDF</a></li><li><a href="/categories/career.html">Career</a></li><li><a href="/tools.html">All Tools</a></li></ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="container" style="padding-top:20px">
+  <p class="breadcrumb"><a href="/">Home</a> / <a href="/categories/ai.html">AI Tools</a> / AI Text Rewriter</p>
+  <div class="tool-header">
+    <h1>AI Text Rewriter</h1>
+    <p class="desc">Rewrite text with AI assistance — provider-pluggable, currently pending a free AI connection.</p>
+  </div>
+
+  <div class="tool-panel">
+    
+    <div class="field"><label for="ai-input">Your text</label><textarea id="ai-input" rows="6" placeholder="Paste text you'd like rewritten..."></textarea></div>
+    <div class="row-actions">
+      <button type="button" id="ai-run" class="btn btn-primary">Rewrite with AI</button>
+    </div>
+    <div id="ai-result" class="notice" style="margin-top:16px">
+      This tool is wired to a pluggable AI provider system, but no free AI provider is currently connected in this deployment.
+      When a provider is configured, this box will show the rewritten text. In the meantime, the rest of the site's calculators
+      and PDF tools work fully offline of any AI service.
+    </div>
+    
+  </div>
+  <div class="disclaimer">AI-generated text should always be reviewed before use. This tool does not send your text anywhere unless a provider is actively configured.</div>
+
+  <div class="content-block">
+    <h2>How it works</h2>
+    <p>This tool is built on a pluggable <code>AIProvider</code> architecture so a free-tier AI provider can be connected later without changing the rest of the site. No paid API is required to launch, and the tool fails gracefully with a clear message when no provider is configured &mdash; it never breaks the page or silently pretends to work.</p>
+    <h2>Example</h2>
+    <p>Once a provider is connected: paste a paragraph, click 'Rewrite with AI', and receive a reworded version, subject to a daily usage limit for anonymous users.</p>
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary>Why isn't this tool working yet?</summary><p>AI tools are deliberately isolated from the rest of the site so that connecting an AI provider is optional. This deployment does not yet have a free AI provider wired up on the backend, so the tool shows an honest status message rather than a broken or fake result.</p></details>
+<details><summary>Will this ever cost money to use?</summary><p>The goal is to keep a free tier available, likely with a daily usage limit for anonymous users, funded by ethical ads/premium features elsewhere on the site &mdash; not to promise unlimited free AI forever.</p></details>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-head"><h2>Related tools</h2></div>
+    <div class="grid grid-4">
+      <a class="tool-card" href="/tools/sgpa-calculator.html">
+      <span class="cat-tag">Student Tools</span>
+      <h3>SGPA Calculator</h3>
+      <p>Calculate your semester SGPA from subject credits and grades.</p>
+    </a>
+<a class="tool-card" href="/tools/cgpa-calculator.html">
+      <span class="cat-tag">Student Tools</span>
+      <h3>CGPA Calculator</h3>
+      <p>Calculate overall CGPA from semester-wise SGPA and credits.</p>
+    </a>
+<a class="tool-card" href="/tools/attendance-calculator.html">
+      <span class="cat-tag">Student Tools</span>
+      <h3>Attendance Calculator</h3>
+      <p>Find out how many classes you need to attend to hit your target attendance.</p>
+    </a>
+<a class="tool-card" href="/tools/emi-calculator.html">
+      <span class="cat-tag">Finance Tools</span>
+      <h3>EMI Calculator</h3>
+      <p>Calculate monthly EMI, total interest and total payment for any loan.</p>
+    </a>
+    </div>
+  </section>
+</div>
+<script>
+    (function(){
+      // --- AIProvider abstraction (kept isolated so the rest of the site never depends on AI) ---
+      // In production, wire ONE of these providers behind a serverless function that keeps API keys server-side.
+      // Never call a paid or keyed API directly from this client-side file.
+      var AIProvider = {
+        FreeProvider: {
+          available: false, // set true once a free-tier provider + serverless proxy is actually configured
+          rewrite: async function(text){ throw new Error('no_provider_configured'); }
+        }
+      };
+      var DAILY_LIMIT = 5; // configurable anonymous usage limit, enforced server-side in production
+      document.getElementById('ai-run').addEventListener('click', async function(){
+        var input = document.getElementById('ai-input').value.trim();
+        var out = document.getElementById('ai-result');
+        if (!input) { out.textContent = 'Please enter some text first.'; return; }
+        if (!AIProvider.FreeProvider.available) {
+          out.textContent = 'AI rewriting is not available yet in this deployment (no free AI provider is connected). Your text was not sent anywhere. Please check back once an AI provider is configured, or use the other tools on this site which all work without AI.';
+          return;
+        }
+        try {
+          out.textContent = 'Rewriting...';
+          var result = await AIProvider.FreeProvider.rewrite(input);
+          out.textContent = result;
+        } catch (e) {
+          out.textContent = 'The AI service is temporarily unavailable or you have reached today\'s free usage limit. Please try again later.';
+        }
+      });
+    })();
+    </script>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/" style="margin-bottom:10px"><span class="dot"></span>ToolNagri</a>
+        <p style="color:var(--ink-soft);font-size:.9rem;max-width:320px">ToolNagri is a free online utility hub with calculators, converters, PDF tools and career tools for Indian students and professionals. No signup required.</p>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="/categories/student.html">Student Tools</a></li><li><a href="/categories/finance.html">Finance Tools</a></li><li><a href="/categories/pdf.html">PDF & Document Tools</a></li><li><a href="/categories/ai.html">AI Tools</a></li><li><a href="/categories/calculators.html">Calculators</a></li><li><a href="/categories/converters.html">Converters</a></li><li><a href="/categories/career.html">Career Tools</a></li><li><a href="/categories/everyday.html">Everyday Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Popular Tools</h4>
+        <ul>
+          <li><a href="/tools/sgpa-calculator.html">SGPA Calculator</a></li><li><a href="/tools/cgpa-calculator.html">CGPA Calculator</a></li><li><a href="/tools/attendance-calculator.html">Attendance Calculator</a></li><li><a href="/tools/emi-calculator.html">EMI Calculator</a></li><li><a href="/tools/sip-calculator.html">SIP Calculator</a></li><li><a href="/tools/gst-calculator.html">GST Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+          <li><a href="/disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> ToolNagri. Made in India. All tools are free to use.</span>
+      <span>Contact: <a href="mailto:hello@toolnagri.in">hello@toolnagri.in</a></span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

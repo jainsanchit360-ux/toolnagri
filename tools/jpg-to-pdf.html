@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JPG to PDF &mdash; Free Online Tool | ToolNagri</title>
+<meta name="description" content="Convert one or more JPG/PNG images into a single PDF, with reordering and rotation, processed locally.">
+<link rel="canonical" href="https://toolnagri.in/tools/jpg-to-pdf.html">
+<meta property="og:title" content="JPG to PDF &mdash; Free Online Tool | ToolNagri">
+<meta property="og:description" content="Convert one or more JPG/PNG images into a single PDF, with reordering and rotation, processed locally.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://toolnagri.in/tools/jpg-to-pdf.html">
+<meta property="og:site_name" content="ToolNagri">
+<meta property="og:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JPG to PDF &mdash; Free Online Tool | ToolNagri">
+<meta name="twitter:description" content="Convert one or more JPG/PNG images into a single PDF, with reordering and rotation, processed locally.">
+<meta name="twitter:image" content="https://toolnagri.in/assets/icons/icon-512.png">
+<meta name="theme-color" content="#146356">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/tools-data.js"></script>
+<script src="/assets/js/site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "JPG to PDF", "applicationCategory": "UtilityApplication", "operatingSystem": "Any (web browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "url": "https://toolnagri.in/tools/jpg-to-pdf.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I reorder images before converting?", "acceptedAnswer": {"@type": "Answer", "text": "Yes &mdash; use the \u2191 and \u2193 buttons next to each file to move it up or down in the list before converting."}}, {"@type": "Question", "name": "Can I rotate a photo that's sideways?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, click 'Rotate' on that image as many times as needed (each click adds 90&deg;) before converting."}}, {"@type": "Question", "name": "Should I choose 'original size' or 'A4'?", "acceptedAnswer": {"@type": "Answer", "text": "Use 'Fit page to each image' if you want each PDF page to exactly match its photo's proportions. Use 'A4' if you need consistent, standard page sizes for printing."}}, {"@type": "Question", "name": "Is there a file size limit?", "acceptedAnswer": {"@type": "Answer", "text": "Each image can be up to 15 MB. Very large numbers of high-resolution images may be slow to process depending on your device."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolnagri.in/"}, {"@type": "ListItem", "position": 2, "name": "PDF & Document Tools", "item": "https://toolnagri.in/categories/pdf.html"}, {"@type": "ListItem", "position": 3, "name": "JPG to PDF", "item": "https://toolnagri.in/tools/jpg-to-pdf.html"}]}</script>
+</head>
+<body data-tool-slug="jpg-to-pdf">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container row">
+    <a class="brand" href="/">
+      <span class="dot" aria-hidden="true"></span>ToolNagri
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links"><li><a href="/categories/student.html">Student</a></li><li><a href="/categories/finance.html">Finance</a></li><li><a href="/categories/pdf.html">PDF</a></li><li><a href="/categories/career.html">Career</a></li><li><a href="/tools.html">All Tools</a></li></ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="container" style="padding-top:20px">
+  <p class="breadcrumb"><a href="/">Home</a> / <a href="/categories/pdf.html">PDF & Document Tools</a> / JPG to PDF</p>
+  <div class="tool-header">
+    <h1>JPG to PDF</h1>
+    <p class="desc">Convert one or more JPG/PNG images into a single PDF, with reordering and rotation, processed locally.</p>
+  </div>
+
+  <div class="tool-panel">
+    
+    <div id="j2p-dropzone" class="drop-zone">
+      <p><strong>Drag & drop images here</strong>, or</p>
+      <label class="btn btn-secondary" for="j2p-file" style="display:inline-flex;margin-top:6px">Choose images</label>
+      <input id="j2p-file" type="file" accept="image/jpeg,image/png" multiple style="display:none">
+      <p class="search-hint">JPG or PNG, multiple files allowed, up to 15 MB each. Processed entirely in your browser.</p>
+    </div>
+    <ul id="j2p-list" class="file-list"></ul>
+    <div id="j2p-pagesize-wrap" class="field" style="display:none;margin-top:10px">
+      <label for="j2p-pagesize">Page size</label>
+      <select id="j2p-pagesize">
+        <option value="original">Fit page to each image (original size)</option>
+        <option value="a4">Standard A4, image centered</option>
+      </select>
+    </div>
+    <div id="error-box" class="error-msg hidden"></div>
+    <div class="row-actions" style="margin-top:14px">
+      <button type="button" id="j2p-generate" class="btn btn-primary" disabled>Convert to PDF</button>
+      <button type="button" id="j2p-reset" class="btn btn-secondary">Clear all</button>
+    </div>
+    <div id="result-box" class="result-card hidden">
+      <p>Your PDF is ready.</p>
+      <a id="j2p-download" class="btn btn-primary" download="converted.pdf">Download PDF</a>
+    </div>
+    
+  </div>
+  
+
+  <div class="content-block">
+    <h2>How it works</h2>
+    <p>Each image you add is embedded onto its own page of a new PDF document, built entirely in your browser using an open-source PDF library. You can reorder pages with the up/down buttons, rotate any image in 90&deg; steps before conversion, and choose whether each page matches the image's original size or is centered on a standard A4 page. No image is uploaded to a server at any point.</p>
+    <h2>Example</h2>
+    <p>Add three photos, use ↑/↓ to put them in the right order, rotate a sideways photo 90&deg;, choose 'Fit page to each image', and download a single 3-page PDF.</p>
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary>Can I reorder images before converting?</summary><p>Yes &mdash; use the ↑ and ↓ buttons next to each file to move it up or down in the list before converting.</p></details>
+<details><summary>Can I rotate a photo that's sideways?</summary><p>Yes, click 'Rotate' on that image as many times as needed (each click adds 90&deg;) before converting.</p></details>
+<details><summary>Should I choose 'original size' or 'A4'?</summary><p>Use 'Fit page to each image' if you want each PDF page to exactly match its photo's proportions. Use 'A4' if you need consistent, standard page sizes for printing.</p></details>
+<details><summary>Is there a file size limit?</summary><p>Each image can be up to 15 MB. Very large numbers of high-resolution images may be slow to process depending on your device.</p></details>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-head"><h2>Related tools</h2></div>
+    <div class="grid grid-4">
+      <a class="tool-card" href="/tools/image-compressor.html">
+      <span class="cat-tag">Everyday Tools</span>
+      <h3>Image Compressor</h3>
+      <p>Compress JPG and PNG images in your browser without uploading them anywhere.</p>
+    </a>
+<a class="tool-card" href="/tools/merge-pdf.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>Merge PDF</h3>
+      <p>Combine multiple PDF files into one, entirely in your browser.</p>
+    </a>
+<a class="tool-card" href="/tools/pdf-to-jpg.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>PDF to JPG</h3>
+      <p>Convert PDF pages into JPG images, processed locally in your browser.</p>
+    </a>
+<a class="tool-card" href="/tools/compress-pdf.html">
+      <span class="cat-tag">PDF & Document Tools</span>
+      <h3>Compress PDF</h3>
+      <p>Reduce PDF file size by re-encoding pages at a quality you choose, processed locally.</p>
+    </a>
+    </div>
+  </section>
+</div>
+<script>
+    (function(){
+      var files = []; // {file, rotation}
+      var dz = document.getElementById('j2p-dropzone');
+      var input = document.getElementById('j2p-file');
+      var listEl = document.getElementById('j2p-list');
+      var genBtn = document.getElementById('j2p-generate');
+      function showError(msg){
+        var box = document.getElementById('error-box');
+        box.textContent = msg; box.classList.remove('hidden');
+      }
+      function renderList(){
+        listEl.innerHTML = '';
+        files.forEach(function(entry, i){
+          var li = document.createElement('li');
+          var label = document.createElement('span');
+          label.textContent = (i+1) + '. ' + entry.file.name + (entry.rotation ? ' (rotated ' + entry.rotation + '°)' : '');
+          li.appendChild(label);
+          var controls = document.createElement('span');
+          controls.style.display = 'flex'; controls.style.gap = '6px';
+
+          var upBtn = document.createElement('button'); upBtn.textContent = '↑'; upBtn.className = 'btn btn-ghost'; upBtn.setAttribute('aria-label','Move up');
+          upBtn.disabled = i === 0;
+          upBtn.addEventListener('click', function(){ if (i>0){ var tmp=files[i-1]; files[i-1]=files[i]; files[i]=tmp; renderList(); } });
+
+          var downBtn = document.createElement('button'); downBtn.textContent = '↓'; downBtn.className = 'btn btn-ghost'; downBtn.setAttribute('aria-label','Move down');
+          downBtn.disabled = i === files.length-1;
+          downBtn.addEventListener('click', function(){ if (i<files.length-1){ var tmp=files[i+1]; files[i+1]=files[i]; files[i]=tmp; renderList(); } });
+
+          var rotBtn = document.createElement('button'); rotBtn.textContent = '↻ Rotate'; rotBtn.className = 'btn btn-ghost'; rotBtn.setAttribute('aria-label','Rotate 90 degrees');
+          rotBtn.addEventListener('click', function(){ entry.rotation = (entry.rotation + 90) % 360; renderList(); });
+
+          var rmBtn = document.createElement('button'); rmBtn.textContent = 'Remove'; rmBtn.className = 'btn btn-ghost';
+          rmBtn.addEventListener('click', function(){ files.splice(i,1); renderList(); });
+
+          controls.appendChild(upBtn); controls.appendChild(downBtn); controls.appendChild(rotBtn); controls.appendChild(rmBtn);
+          li.appendChild(controls);
+          listEl.appendChild(li);
+        });
+        genBtn.disabled = files.length === 0;
+        document.getElementById('j2p-pagesize-wrap').style.display = files.length ? 'block' : 'none';
+      }
+      function addFiles(fileList){
+        document.getElementById('error-box').classList.add('hidden');
+        for (var i=0;i<fileList.length;i++){
+          var f = fileList[i];
+          if (!/^image\/(jpeg|png)$/.test(f.type)) { showError('Only JPG and PNG images are supported. Skipped: ' + f.name); continue; }
+          if (f.size > 15*1024*1024) { showError('Skipped ' + f.name + ' (over 15 MB).'); continue; }
+          files.push({ file: f, rotation: 0 });
+        }
+        renderList();
+      }
+      ['dragover','dragenter'].forEach(function(evt){ dz.addEventListener(evt, function(e){ e.preventDefault(); dz.classList.add('dragover'); }); });
+      ['dragleave','drop'].forEach(function(evt){ dz.addEventListener(evt, function(e){ e.preventDefault(); dz.classList.remove('dragover'); }); });
+      dz.addEventListener('drop', function(e){ addFiles(e.dataTransfer.files); });
+      input.addEventListener('change', function(){ addFiles(input.files); input.value=''; });
+
+      // Re-draws an image onto a canvas rotated by 0/90/180/270 degrees, returns {bytes, width, height}
+      async function rotateImageBytes(file, rotationDeg){
+        return new Promise(function(resolve, reject){
+          var img = new Image();
+          img.onload = function(){
+            var canvas = document.createElement('canvas');
+            var swap = rotationDeg === 90 || rotationDeg === 270;
+            canvas.width = swap ? img.naturalHeight : img.naturalWidth;
+            canvas.height = swap ? img.naturalWidth : img.naturalHeight;
+            var ctx = canvas.getContext('2d');
+            ctx.translate(canvas.width/2, canvas.height/2);
+            ctx.rotate(rotationDeg * Math.PI/180);
+            ctx.drawImage(img, -img.naturalWidth/2, -img.naturalHeight/2);
+            canvas.toBlob(function(blob){
+              blob.arrayBuffer().then(function(buf){
+                resolve({ bytes: buf, width: canvas.width, height: canvas.height });
+              });
+            }, 'image/jpeg', 0.92);
+          };
+          img.onerror = function(){ reject(new Error('bad_image')); };
+          var reader = new FileReader();
+          reader.onload = function(e){ img.src = e.target.result; };
+          reader.readAsDataURL(file);
+        });
+      }
+
+      genBtn.addEventListener('click', async function(){
+        document.getElementById('error-box').classList.add('hidden');
+        if (typeof PDFLib === 'undefined') { showError('The PDF library failed to load. Please check your internet connection and try again.'); return; }
+        if (files.length === 0) { showError('Please add at least one image.'); return; }
+        genBtn.disabled = true; genBtn.textContent = 'Converting...';
+        var pageSizeMode = document.getElementById('j2p-pagesize').value;
+        try {
+          var pdfDoc = await PDFLib.PDFDocument.create();
+          for (var i=0;i<files.length;i++){
+            var entry = files[i];
+            var imgBytes, w, h;
+            if (entry.rotation !== 0) {
+              var r = await rotateImageBytes(entry.file, entry.rotation);
+              imgBytes = r.bytes; w = r.width; h = r.height;
+              var img = await pdfDoc.embedJpg(imgBytes);
+              addImagePage(pdfDoc, img, w, h, pageSizeMode);
+            } else {
+              var bytes = await entry.file.arrayBuffer();
+              var img2 = entry.file.type === 'image/png' ? await pdfDoc.embedPng(bytes) : await pdfDoc.embedJpg(bytes);
+              addImagePage(pdfDoc, img2, img2.width, img2.height, pageSizeMode);
+            }
+          }
+          var pdfBytes = await pdfDoc.save();
+          var blob = new Blob([pdfBytes], {type:'application/pdf'});
+          var url = URL.createObjectURL(blob);
+          document.getElementById('j2p-download').href = url;
+          document.getElementById('result-box').classList.remove('hidden');
+        } catch (err) {
+          showError('Something went wrong converting these images. Please try different files.');
+        } finally {
+          genBtn.disabled = false; genBtn.textContent = 'Convert to PDF';
+        }
+      });
+
+      function addImagePage(pdfDoc, img, w, h, mode){
+        if (mode === 'a4') {
+          var pageW = 595.28, pageH = 841.89; // A4 in points
+          var scale = Math.min((pageW-40)/w, (pageH-40)/h, 1);
+          var drawW = w*scale, drawH = h*scale;
+          var page = pdfDoc.addPage([pageW, pageH]);
+          page.drawImage(img, { x:(pageW-drawW)/2, y:(pageH-drawH)/2, width:drawW, height:drawH });
+        } else {
+          var page2 = pdfDoc.addPage([w, h]);
+          page2.drawImage(img, {x:0, y:0, width:w, height:h});
+        }
+      }
+
+      document.getElementById('j2p-reset').addEventListener('click', function(){
+        files = []; renderList();
+        document.getElementById('result-box').classList.add('hidden');
+        document.getElementById('error-box').classList.add('hidden');
+      });
+    })();
+    </script>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/" style="margin-bottom:10px"><span class="dot"></span>ToolNagri</a>
+        <p style="color:var(--ink-soft);font-size:.9rem;max-width:320px">ToolNagri is a free online utility hub with calculators, converters, PDF tools and career tools for Indian students and professionals. No signup required.</p>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="/categories/student.html">Student Tools</a></li><li><a href="/categories/finance.html">Finance Tools</a></li><li><a href="/categories/pdf.html">PDF & Document Tools</a></li><li><a href="/categories/ai.html">AI Tools</a></li><li><a href="/categories/calculators.html">Calculators</a></li><li><a href="/categories/converters.html">Converters</a></li><li><a href="/categories/career.html">Career Tools</a></li><li><a href="/categories/everyday.html">Everyday Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Popular Tools</h4>
+        <ul>
+          <li><a href="/tools/sgpa-calculator.html">SGPA Calculator</a></li><li><a href="/tools/cgpa-calculator.html">CGPA Calculator</a></li><li><a href="/tools/attendance-calculator.html">Attendance Calculator</a></li><li><a href="/tools/emi-calculator.html">EMI Calculator</a></li><li><a href="/tools/sip-calculator.html">SIP Calculator</a></li><li><a href="/tools/gst-calculator.html">GST Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+          <li><a href="/disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> ToolNagri. Made in India. All tools are free to use.</span>
+      <span>Contact: <a href="mailto:hello@toolnagri.in">hello@toolnagri.in</a></span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

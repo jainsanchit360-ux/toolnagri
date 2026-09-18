@@ -1,0 +1,10 @@
+[
+  {"slug":"student","name":"Student Tools","description":"SGPA, CGPA, attendance and other tools built for Indian students."},
+  {"slug":"finance","name":"Finance Tools","description":"EMI, SIP and GST calculators for everyday financial planning."},
+  {"slug":"pdf","name":"PDF & Document Tools","description":"Convert, merge and manage PDF files — processed locally in your browser."},
+  {"slug":"ai","name":"AI Tools","description":"AI-assisted tools, built on a pluggable provider so they never require a paid API."},
+  {"slug":"calculators","name":"Calculators","description":"Everyday calculators for age, BMI, percentages and more."},
+  {"slug":"converters","name":"Converters","description":"Convert between units of length, weight, temperature and more."},
+  {"slug":"career","name":"Career Tools","description":"Build a resume and prepare career documents, free and without an account."},
+  {"slug":"everyday","name":"Everyday Tools","description":"Small tools that solve everyday problems — QR codes, image compression and more."}
+]
