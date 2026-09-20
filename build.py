@@ -18,6 +18,52 @@ def build_tools_data_js():
 BRAND = cfg["brandName"]
 URL = cfg["url"]
 
+# ---------------- Icon system ----------------
+# Hand-authored, lightweight inline SVGs in a Lucide/Feather-style outline language
+# (stroke="currentColor", 1.8px stroke, round caps). Zero network requests, zero JS,
+# inherits color via currentColor so it works with hover states and (future) dark mode.
+def icon(name, size=22):
+    paths = {
+        "document": '<path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/>',
+        "image": '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.7"/><path d="M21 16l-5.5-5.5L6 20"/>',
+        "compress": '<path d="M8 3v4a1 1 0 0 1-1 1H3M16 3v4a1 1 0 0 0 1 1h4M8 21v-4a1 1 0 0 0-1-1H3M16 21v-4a1 1 0 0 1 1-1h4"/>',
+        "split": '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16" stroke-dasharray="3 3"/>',
+        "merge": '<path d="M6 3v7a4 4 0 0 0 4 4h4M6 3H3m3 0h3M18 3v7M18 3h3m-3 0h-3"/><path d="M14 14l4 4-4 4"/>',
+        "word": '<path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M8 13l1.3 6L11 14l1.7 5L14 13"/>',
+        "ppt": '<path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><rect x="8.5" y="12" width="3" height="6" rx=".5"/><path d="M11.5 12h2a2 2 0 1 1 0 4h-2"/>',
+        "excel": '<path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M8.5 12.5l5 6M13.5 12.5l-5 6"/>',
+        "upload-cloud": '<path d="M7 18a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.9 8H17a4 4 0 0 1 1 7.9"/><path d="M12 12v8m0-8l-3 3m3-3l3 3"/>',
+        "download": '<path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>',
+        "check-circle": '<circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3L16 10"/>',
+        "search": '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
+        "calculator": '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01"/>',
+        "wallet": '<path d="M3 7a2 2 0 0 1 2-2h13a1 1 0 0 1 1 1v3H5a2 2 0 0 1-2-2z"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H5"/><circle cx="16" cy="14" r="1.3"/>',
+        "cap": '<path d="M12 4L2 9l10 5 8-4v6"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/>',
+        "briefcase": '<rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/>',
+        "ruler": '<path d="M3 7h18v10H3z"/><path d="M7 7v3M11 7v5M15 7v3M19 7v5"/>',
+        "sparkle": '<path d="M12 3l1.8 4.8L18.5 9l-4.7 1.8L12 15l-1.8-4.2L5.5 9l4.7-1.2z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/>',
+        "everyday": '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+        "qr": '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM19 14h2M14 19h2M19 19h2"/>',
+        "converter": '<path d="M7 7h11l-3-3M17 17H6l3 3"/>',
+        "resume": '<path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><circle cx="11" cy="12.5" r="1.8"/><path d="M8.3 17c.5-1.6 1.8-2.5 3.2-2.5s2.7.9 3.2 2.5"/>',
+    }
+    p = paths.get(name, paths["document"])
+    return ('<svg width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">%s</svg>') % (size, size, p)
+
+CATEGORY_ICON = {
+    "student": "cap", "finance": "wallet", "pdf": "document", "ai": "sparkle",
+    "calculators": "calculator", "converters": "converter", "career": "briefcase", "everyday": "everyday",
+}
+TOOL_ICON_OVERRIDE = {
+    "pdf-to-jpg": "image", "pdf-to-png": "image", "jpg-to-pdf": "document",
+    "compress-pdf": "compress", "split-pdf": "split", "merge-pdf": "merge",
+    "pdf-to-word": "word", "pdf-to-ppt": "ppt", "pdf-to-excel": "excel",
+    "qr-code-generator": "qr", "resume-builder": "resume", "unit-converter": "converter",
+}
+def tool_icon_name(t):
+    return TOOL_ICON_OVERRIDE.get(t["slug"], CATEGORY_ICON.get(t["category"], "document"))
+
 tool_by_slug = {t["slug"]: t for t in tools}
 cat_by_slug = {c["slug"]: c for c in cats}
 tools_by_cat = {}
@@ -38,18 +84,23 @@ def header(active_path="/"):
     )
     return """
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
+<header class="site-header" id="site-header">
   <div class="container row">
     <a class="brand" href="/">
-      <span class="dot" aria-hidden="true"></span>%s
+      <span class="brand-mark" aria-hidden="true">%s</span>%s
     </a>
     <nav aria-label="Primary">
       <ul class="nav-links">%s</ul>
     </nav>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <div class="nav-right">
+      <a class="nav-search-btn" href="/tools.html" aria-label="Search tools">%s</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      </button>
+    </div>
   </div>
 </header>
-""" % (BRAND, links)
+""" % (icon("sparkle", 18), BRAND, links, icon("search", 18))
 
 def footer():
     return """
@@ -57,7 +108,7 @@ def footer():
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a class="brand" href="/" style="margin-bottom:10px"><span class="dot"></span>%s</a>
+        <a class="brand" href="/" style="margin-bottom:10px"><span class="brand-mark" aria-hidden="true">%s</span>%s</a>
         <p style="color:var(--ink-soft);font-size:.9rem;max-width:320px">%s</p>
       </div>
       <div>
@@ -91,7 +142,7 @@ def footer():
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 """ % (
-        BRAND,
+        icon("sparkle", 16), BRAND,
         cfg["description"],
         "".join('<li><a href="/categories/%s.html">%s</a></li>' % (c["slug"], c["name"]) for c in cats),
         "".join('<li><a href="/tools/%s.html">%s</a></li>' % (t["slug"], t["name"]) for t in tools[:6]),
@@ -126,9 +177,14 @@ def page(title, description, canonical, body, extra_head="", body_attrs="", sche
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/assets/css/style.css">
 <script src="/assets/js/tools-data.js"></script>
 <script src="/assets/js/site.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7811625552429496"
+     crossorigin="anonymous"></script>
 %s
 </head>
 <body %s>
@@ -153,17 +209,19 @@ POPULAR_SLUGS = ["sgpa-calculator","emi-calculator","attendance-calculator","age
 
 def tool_card(t):
     return """<a class="tool-card" href="/tools/%s.html">
+      <span class="tool-card-icon">%s</span>
       <span class="cat-tag">%s</span>
       <h3>%s</h3>
       <p>%s</p>
-    </a>""" % (t["slug"], cat_by_slug[t["category"]]["name"], t["name"], t["short"])
+    </a>""" % (t["slug"], icon(tool_icon_name(t)), cat_by_slug[t["category"]]["name"], t["name"], t["short"])
 
 def cat_card(c):
     n = len(tools_by_cat.get(c["slug"], []))
     return """<a class="cat-card" href="/categories/%s.html">
+      <span class="cat-card-icon">%s</span>
       <h3>%s</h3>
       <p>%s &middot; %d tool%s</p>
-    </a>""" % (c["slug"], c["name"], c["description"], n, "" if n == 1 else "s")
+    </a>""" % (c["slug"], icon(CATEGORY_ICON.get(c["slug"], "document"), 24), c["name"], c["description"], n, "" if n == 1 else "s")
 
 # ---------------- Homepage ----------------
 def build_homepage():
@@ -176,12 +234,15 @@ def build_homepage():
     ]
     body = """
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="container">
-    <h1>Free Tools for Everyday Life</h1>
-    <p class="sub">Calculate, convert, create and solve everyday problems &mdash; quickly and for free.</p>
-    <div class="search-box">
+    <span class="hero-badge animate-in">%s Free &middot; No signup &middot; Works on any device</span>
+    <h1 class="animate-in">Free Online Tools for Everyday Tasks</h1>
+    <p class="sub animate-in">PDF tools, calculators, converters and productivity tools &mdash; all in one place.</p>
+    <div class="search-box animate-in">
+      <span class="search-icon" aria-hidden="true">%s</span>
       <label for="home-search" class="visually-hidden">Search for a tool</label>
-      <input id="home-search" type="text" placeholder="Search for a tool..." autocomplete="off">
+      <input id="home-search" type="text" placeholder="Search tools... e.g. PDF to JPG, EMI Calculator" autocomplete="off">
       <div id="home-search-results" class="search-results" style="display:none"></div>
     </div>
     <p class="search-hint">Try: SGPA Calculator, EMI Calculator, QR Code Generator&hellip;</p>
@@ -191,6 +252,21 @@ def build_homepage():
 <section>
   <div class="container">
     <div class="section-head"><h2>Popular Tools</h2><a href="/tools.html">View all tools &rarr;</a></div>
+    <div class="grid grid-4">
+      %s
+    </div>
+  </div>
+</section>
+
+<section class="pdf-spotlight">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Popular PDF Tools</h2>
+        <p class="section-sub">Convert, compress, split and manage your PDFs instantly.</p>
+      </div>
+      <a href="/categories/pdf.html">View all PDF tools &rarr;</a>
+    </div>
     <div class="grid grid-4">
       %s
     </div>
@@ -210,12 +286,12 @@ def build_homepage():
   <div class="container">
     <div class="section-head"><h2>Why use %s?</h2></div>
     <div class="grid grid-3">
-      <div class="cat-card"><h3>Free</h3><p>No cost, no hidden charges on core tools.</p></div>
-      <div class="cat-card"><h3>Fast</h3><p>Lightweight pages built for slow connections and cheap phones.</p></div>
-      <div class="cat-card"><h3>No unnecessary signup</h3><p>Use most tools instantly &mdash; no account required.</p></div>
-      <div class="cat-card"><h3>Privacy-focused</h3><p>Document tools process files locally wherever possible.</p></div>
-      <div class="cat-card"><h3>Mobile-friendly</h3><p>Designed mobile-first for the way India actually browses.</p></div>
-      <div class="cat-card"><h3>Easy to use</h3><p>Clear layouts, plain-language explanations, no clutter.</p></div>
+      <div class="cat-card"><span class="cat-card-icon">%s</span><h3>Free</h3><p>No cost, no hidden charges on core tools.</p></div>
+      <div class="cat-card"><span class="cat-card-icon">%s</span><h3>Fast</h3><p>Lightweight pages built for slow connections and cheap phones.</p></div>
+      <div class="cat-card"><span class="cat-card-icon">%s</span><h3>No unnecessary signup</h3><p>Use most tools instantly &mdash; no account required.</p></div>
+      <div class="cat-card"><span class="cat-card-icon">%s</span><h3>Privacy-focused</h3><p>Document tools process files locally wherever possible.</p></div>
+      <div class="cat-card"><span class="cat-card-icon">%s</span><h3>Mobile-friendly</h3><p>Designed mobile-first for the way India actually browses.</p></div>
+      <div class="cat-card"><span class="cat-card-icon">%s</span><h3>Easy to use</h3><p>Clear layouts, plain-language explanations, no clutter.</p></div>
     </div>
   </div>
 </section>
@@ -254,9 +330,13 @@ def build_homepage():
         description=cfg["description"],
         canonical=URL + "/",
         body=body % (
+            icon("check-circle", 14),
+            icon("search", 20),
             "\n".join(tool_card(t) for t in popular),
+            "\n".join(tool_card(t) for t in tools_by_cat.get("pdf", [])[:8]),
             "\n".join(cat_card(c) for c in cats),
             BRAND,
+            icon("check-circle"), icon("sparkle"), icon("everyday"), icon("document"), icon("everyday"), icon("check-circle"),
             " &middot; ".join('<a href="/tools/%s.html">%s</a>' % (t["slug"], t["name"]) for t in tools),
             "\n".join('<details><summary>%s</summary><p>%s</p></details>' % f for f in faqs),
         ),

@@ -7,10 +7,13 @@ def register():
     # ---------------- Split PDF ----------------
     panel = """
     <div id="sp-dropzone" class="drop-zone">
-      <p><strong>Drag & drop a PDF here</strong>, or</p>
+      <span class="drop-zone-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.9 8H17a4 4 0 0 1 1 7.9"/><path d="M12 12v8m0-8l-3 3m3-3l3 3"/></svg></span>
+      <p><strong>Drop your PDF here</strong></p>
+      <p class="drop-zone-sub">or</p>
       <label class="btn btn-secondary" for="sp-file" style="display:inline-flex;margin-top:6px">Choose PDF</label>
       <input id="sp-file" type="file" accept="application/pdf" style="display:none">
       <p class="search-hint">One PDF at a time, up to 40 MB. Processed entirely in your browser.</p>
+      <div class="drop-zone-trust"><span>Free</span><span>&middot;</span><span>Fast</span><span>&middot;</span><span>Secure</span></div>
     </div>
     <div id="sp-options" style="display:none;margin-top:16px">
       <p class="field hint" id="sp-filename"></p>
@@ -182,10 +185,13 @@ def register():
     # ---------------- Compress PDF ----------------
     panel = """
     <div id="cp-dropzone" class="drop-zone">
-      <p><strong>Drag & drop a PDF here</strong>, or</p>
+      <span class="drop-zone-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.9 8H17a4 4 0 0 1 1 7.9"/><path d="M12 12v8m0-8l-3 3m3-3l3 3"/></svg></span>
+      <p><strong>Drop your PDF here</strong></p>
+      <p class="drop-zone-sub">or</p>
       <label class="btn btn-secondary" for="cp-file" style="display:inline-flex;margin-top:6px">Choose PDF</label>
       <input id="cp-file" type="file" accept="application/pdf" style="display:none">
       <p class="search-hint">One PDF at a time, up to 40 MB. Processed entirely in your browser.</p>
+      <div class="drop-zone-trust"><span>Free</span><span>&middot;</span><span>Fast</span><span>&middot;</span><span>Secure</span></div>
     </div>
     <div class="notice">
       This tool re-encodes each page as an optimized image at the quality you choose. It works best for

@@ -15,6 +15,17 @@
         toggle.setAttribute("aria-expanded", open ? "true" : "false");
       });
     }
+
+    // Subtle header shadow once the page has scrolled (purely visual, CSS-driven).
+    var header = document.getElementById("site-header");
+    if (header) {
+      var onScroll = function () {
+        header.classList.toggle("scrolled", window.scrollY > 4);
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }
+
   });
 
   // ---------- Search ----------

@@ -6,10 +6,13 @@ def register():
     # ---------------- JPG to PDF (with reorder, rotate, page-fit options) ----------------
     panel = """
     <div id="j2p-dropzone" class="drop-zone">
-      <p><strong>Drag & drop images here</strong>, or</p>
+      <span class="drop-zone-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.9 8H17a4 4 0 0 1 1 7.9"/><path d="M12 12v8m0-8l-3 3m3-3l3 3"/></svg></span>
+      <p><strong>Drop your images here</strong></p>
+      <p class="drop-zone-sub">or</p>
       <label class="btn btn-secondary" for="j2p-file" style="display:inline-flex;margin-top:6px">Choose images</label>
       <input id="j2p-file" type="file" accept="image/jpeg,image/png" multiple style="display:none">
       <p class="search-hint">JPG or PNG, multiple files allowed, up to 15 MB each. Processed entirely in your browser.</p>
+      <div class="drop-zone-trust"><span>Free</span><span>&middot;</span><span>Fast</span><span>&middot;</span><span>Secure</span></div>
     </div>
     <ul id="j2p-list" class="file-list"></ul>
     <div id="j2p-pagesize-wrap" class="field" style="display:none;margin-top:10px">
@@ -183,10 +186,13 @@ def register():
     # ---------------- Merge PDF ----------------
     panel = """
     <div id="mp-dropzone" class="drop-zone">
-      <p><strong>Drag & drop PDF files here</strong>, or</p>
+      <span class="drop-zone-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.9 8H17a4 4 0 0 1 1 7.9"/><path d="M12 12v8m0-8l-3 3m3-3l3 3"/></svg></span>
+      <p><strong>Drop your PDF files here</strong></p>
+      <p class="drop-zone-sub">or</p>
       <label class="btn btn-secondary" for="mp-file" style="display:inline-flex;margin-top:6px">Choose PDF files</label>
       <input id="mp-file" type="file" accept="application/pdf" multiple style="display:none">
       <p class="search-hint">Add 2 or more PDFs, up to 25 MB each. Processed entirely in your browser.</p>
+      <div class="drop-zone-trust"><span>Free</span><span>&middot;</span><span>Fast</span><span>&middot;</span><span>Secure</span></div>
     </div>
     <ul id="mp-list" class="file-list"></ul>
     <div id="error-box" class="error-msg hidden"></div>

@@ -59,7 +59,7 @@
   var docxPromise = null;
   function ensureDocx() {
     if (docxPromise) return docxPromise;
-    docxPromise = loadScriptOnce("https://cdn.jsdelivr.net/npm/docx@7.8.2/build/index.js")
+    docxPromise = loadScriptOnce("https://cdn.jsdelivr.net/npm/docx@9.6.1/dist/index.umd.cjs")
       .then(function () {
         if (typeof window.docx === "undefined") throw new Error("load_failed");
         return window.docx;
